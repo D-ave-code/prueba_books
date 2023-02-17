@@ -1,0 +1,119 @@
+info:
+  title: Generated API
+  version: '1.0'
+openapi: 3.0.0.Alpha4
+paths:
+  /books:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Books'
+                type: array
+          description: OK
+  /books/all:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Books-All'
+                type: array
+          description: OK
+  /books/{id}:
+    get:
+      parameters:
+        -
+          in: path
+          name: id
+          required: true
+          schema:
+            format: int32
+            type: integer
+      responses:
+        '200':
+          description: OK
+    put:
+      parameters:
+        -
+          in: path
+          name: id
+          required: true
+          schema:
+            format: int32
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: No Content
+    delete:
+      parameters:
+        -
+          in: path
+          name: id
+          required: true
+          schema:
+            format: int32
+            type: integer
+      responses:
+        '204':
+          description: No Content
+components:
+  schemas:
+    Books:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: string
+        isbn:
+          type: string
+          description: aqui va el isbn
+        title:
+          type: string
+          description: aqui va el title
+        author:
+          type: string
+          description: aqui va el author
+        price:
+          type: string
+          description: aqui va el price
+    Books-DTO:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: string
+        isbn:
+          type: string
+          description: aqui va el isbn
+        title:
+          type: string
+          description: aqui va el title
+        author:
+          type: string
+          description: aqui va el author
+        price:
+          type: string
+          description: aqui va el price
+        authorName:
+          type: string
+          description: aqui va el nombre del author
