@@ -34,7 +34,7 @@ services:
       TRACING_HOST: tracing
     depends_on:
       - postgres-sql
-      - traefik
+      - proxy
     deploy:
       replicas: 3
 
@@ -51,7 +51,7 @@ services:
       #SERVER_PORT: 8080
     depends_on:
       - postgres-sql
-      - traefik
+      - proxy
     deploy:
       replicas: 2
 
