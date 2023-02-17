@@ -24,7 +24,7 @@ services:
       - 16686:16686
       - 14258:14258
   books-service:
-    image: d4vecode/app-books:1.0.0
+    image: jaimesalvador/app-books:1.0.0
     environment:
       DB_CONNECTION_USER: postgres
       DB_CONNECTION_PASSWORD: postgres
@@ -43,7 +43,7 @@ services:
       - "traefik.http.middlewares.books.stripprefix.prefixes=/app1"
       - "traefik.http.routers.books.middlewares=books"
   authors-service:
-    image: d4vecode/app-authors:1.0.0
+    image: jaimesalvador/app-authors:1.0.0
     environment:
       QUARKUS_DATASOURCE_USERNAME: postgres
       QUARKUS_DATASOURCE_PASSWORD: postgres
